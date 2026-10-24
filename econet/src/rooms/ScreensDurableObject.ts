@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // A room's screens: members sharing their machines' screens send small
 // images, a few a second at most, and everyone else in the room sees them.
 //

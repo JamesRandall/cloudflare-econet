@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // One room: its members, invitations and station leases (in the object's
 // SQLite storage), and the relay between its members' connections.
 //

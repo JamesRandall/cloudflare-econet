@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 import { describe, expect, it } from "vitest";
 import { decodeTraffic, TrafficType } from "../src/protocol";
 import { call, connected, createRoom, joinRoom, scout } from "./helpers";

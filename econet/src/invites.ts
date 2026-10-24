@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // Invitations: a short code to read aloud or type, and a long link. Both
 // stand for the same invite, held (hashed) by its room, which decides
 // whether it's still good.

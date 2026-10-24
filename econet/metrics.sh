@@ -1,4 +1,5 @@
 #!/bin/sh
+# SPDX-License-Identifier: AGPL-3.0-only
 # The service's counts (GET /v1/admin/metrics), with the admin token from
 # .env.local (ADMIN_TOKEN=..., kept out of git).
 #

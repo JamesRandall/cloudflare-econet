@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // The published test vectors (protocol/fixtures) match this codec, both ways.
 import { describe, expect, it } from "vitest";
 import fixtures from "../protocol/fixtures/traffic.json";

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // The page an invitation link opens: what the room is, and a way into it
 // from either emulator (neither is assumed installed), or the link to copy.
 

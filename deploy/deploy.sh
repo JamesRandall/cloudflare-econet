@@ -1,4 +1,5 @@
 #!/bin/sh
+# SPDX-License-Identifier: AGPL-3.0-only
 # Tests, then deploys the official service to econet.acornplayground.org,
 # then checks it answers. Needs `npx wrangler login` once, on an account
 # with acornplayground.org.

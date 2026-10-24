@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // The public HTTP API and WebSocket upgrade. Rooms are their own Durable
 // Objects; this Worker checks requests' shapes and sizes, applies rate
 // limits, finds the room, and passes the request on.

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // Rate limits on the HTTP API (room creation, code lookups, joining): a
 // token bucket per client address and action, each in its own small
 // Durable Object (so no shared hot spot). Addresses are hashed, and kept

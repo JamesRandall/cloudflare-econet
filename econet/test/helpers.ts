@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 import { exports } from "cloudflare:workers";
 import { encodeTraffic, PROTOCOL_VERSION, TrafficType } from "../src/protocol";
 

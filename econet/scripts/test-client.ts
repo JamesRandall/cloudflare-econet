@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // A tiny scripted client, no emulator needed: against a running service
 // (`npm run dev`, or any deployment), it creates a room, joins it by code
 // as a second participant, connects both, claims stations, relays a frame

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 import { LIMITS, MINIMUM_PROTOCOL_VERSION, PROTOCOL_VERSION } from "./protocol";
 
 /** The bindings, as wrangler.jsonc declares them (src/worker-configuration.d.ts,

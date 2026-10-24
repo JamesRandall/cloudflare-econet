@@ -87,3 +87,13 @@ program costing much; the operator's counts are behind an admin token. See
 - [Operations](econet/docs/operations.md)
 
 Public room directories are planned (phase 2), and not here yet.
+
+## Licence
+
+Copyright (C) 2026 James Randall
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License, version 3, as
+published by the Free Software Foundation. It is distributed in the hope
+that it will be useful, but without any warranty; see [LICENSE](LICENSE)
+for details.

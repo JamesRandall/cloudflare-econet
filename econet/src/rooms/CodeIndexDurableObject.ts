@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // Which room a join code belongs to. Each code has its own tiny Durable
 // Object, named by the code's hash, so a lookup goes straight there: no
 // global table, and nothing to enumerate. The room itself decides whether

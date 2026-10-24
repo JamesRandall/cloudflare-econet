@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // Service-wide counts, for the operator: rooms report what they've done
 // (counts only: no names, addresses or traffic) at most every half minute,
 // and which are active. One Durable Object holds the totals; it's only

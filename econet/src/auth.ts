@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // Credentials: random tokens, kept by the service only as SHA-256 hashes.
 //
 // - Owner token: the room's host; manages invites, members and the room.

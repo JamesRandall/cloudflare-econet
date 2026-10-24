@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: AGPL-3.0-only
 // The room protocol, version 1: what clients and the service say to each
 // other over a room's WebSocket. Control messages are JSON text; Econet
 // traffic is binary. docs/protocol.md describes it in full, and

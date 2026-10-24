@@ -19,6 +19,7 @@ where the two differ.
   "service": "acorn-internet-econet",
   "name": "Acorn Internet Econet",
   "origin": "https://econet.example.org",
+  "source": "https://github.com/JamesRandall/cloudflare-econet",
   "apiVersion": 1,
   "protocolVersions": [1],
   "minimumProtocolVersion": 1,

@@ -10,7 +10,7 @@ import { LIMITS } from "./protocol";
 import { allow } from "./rate-limits";
 import { metrics } from "./metrics";
 import { RoomError, type InviteIssued } from "./rooms/RoomDurableObject";
-import { publicOrigin, serviceInfo, setting, type Env } from "./service-info";
+import { publicOrigin, serviceInfo, setting, sourceURL, type Env } from "./service-info";
 
 export { RoomDurableObject } from "./rooms/RoomDurableObject";
 export { CodeIndexDurableObject } from "./rooms/CodeIndexDurableObject";
@@ -106,7 +106,7 @@ async function route(request: Request, env: Env): Promise<Response> {
     return json(serviceInfo(env, origin));
   }
   if (path === "/" && method === "GET") {
-    return new Response(`${env.SERVICE_NAME || "Acorn Internet Econet"}: Econet rooms for Acorn emulators. See /.well-known/acorn-econet.\n`,
+    return new Response(`${env.SERVICE_NAME || "Acorn Internet Econet"}: Econet rooms for Acorn emulators. See /.well-known/acorn-econet.\nSource code: ${sourceURL(env)}\n`,
       { headers: { "Content-Type": "text/plain; charset=utf-8" } });
   }
 
@@ -123,7 +123,7 @@ async function route(request: Request, env: Env): Promise<Response> {
         if (!(error instanceof RoomError)) throw error;
       }
     }
-    return landingPage({ origin, token: match[1], preview, serviceName: env.SERVICE_NAME });
+    return landingPage({ origin, token: match[1], preview, serviceName: env.SERVICE_NAME, source: sourceURL(env) });
   }
 
   // The operator's: with ADMIN_TOKEN set (a secret), the service's counts,

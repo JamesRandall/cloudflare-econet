@@ -11,6 +11,7 @@ describe("service", () => {
     const r = await call("GET", "/.well-known/acorn-econet");
     expect(r.status).toBe(200);
     expect(r.body.service).toBe("acorn-internet-econet");
+    expect(r.body.source).toBe("https://github.com/JamesRandall/cloudflare-econet");
     expect(r.body.protocolVersions).toContain(1);
     expect(r.body.features.publicDirectory).toBe(false);
     expect(r.body.limits.maxStationsPerRoom).toBe(32);
@@ -91,6 +92,7 @@ describe("rooms", () => {
     expect(page.status).toBe(200);
     expect(page.body).toContain("Page Test");
     expect(page.body).toContain("macbeeb://join?service=");
+    expect(page.body).toContain('href="https://github.com/JamesRandall/cloudflare-econet">Source code');
     expect((await call("GET", `/join/${room.roomId}.AAAAAAAAAAAAAAAAAAAAAA`)).status).toBe(404);
   });
 

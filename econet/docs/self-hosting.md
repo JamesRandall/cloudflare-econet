@@ -34,6 +34,14 @@ account), and set `PUBLIC_ORIGIN` so invitation links use it:
 "vars": { "PUBLIC_ORIGIN": "https://econet.example.org", "SERVICE_NAME": "Example Econet" }
 ```
 
+### Your source code
+
+The service is under the GNU AGPLv3. Its pages and
+`/.well-known/acorn-econet` link to its source code: the official
+repository, unless `SOURCE_URL` says otherwise. If you run a modified copy,
+the licence asks you to offer your changed source to the people using it:
+publish it, and set `SOURCE_URL` to where it is.
+
 ## Use it from MacBeeb
 
 Settings ▸ Networking ▸ Internet Econet Service: choose **Custom service**,

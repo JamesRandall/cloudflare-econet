@@ -8,8 +8,8 @@ function escape(text: string): string {
   return text.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 }
 
-export function landingPage(input: { origin: string; token: string; preview: Preview | null; serviceName: string }): Response {
-  const { origin, token, preview } = input;
+export function landingPage(input: { origin: string; token: string; preview: Preview | null; serviceName: string; source: string }): Response {
+  const { origin, token, preview, source } = input;
   const service = new URL(origin).host;
   const link = `${origin}/join/${token}`;
   const appLink = (scheme: string) => `${scheme}://join?service=${encodeURIComponent(origin)}&invite=${encodeURIComponent(token)}`;
@@ -63,9 +63,11 @@ export function landingPage(input: { origin: string; token: string; preview: Pre
   .copy input { flex: 1; min-width: 0; background: #0e1013; color: var(--text); border: 1px solid #2a2f38; border-radius: 8px; padding: 8px 10px; font: 13px ui-monospace, monospace; }
   .copy button { border: 0; border-radius: 8px; padding: 8px 14px; background: #262b34; color: var(--text); font-weight: 600; cursor: pointer; }
   .fine { margin-top: 18px; }
+  .source { margin: 18px 0 0; font-size: 13px; }
+  .source a { color: var(--muted); }
 </style>
 </head>
-<body><main>${body}</main></body>
+<body><main>${body}<p class="source"><a href="${escape(source)}">Source code</a></p></main></body>
 </html>`;
   return new Response(html, {
     status: preview ? 200 : 404,

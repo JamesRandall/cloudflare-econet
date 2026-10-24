@@ -27,6 +27,7 @@
   "vars": {
     "PUBLIC_ORIGIN": "https://econet.acornplayground.org",
     "SERVICE_NAME": "Acorn Playground Econet",
+    "SOURCE_URL": "https://github.com/JamesRandall/cloudflare-econet",
     "ROOM_CREATION": "open",
     "MAX_ACTIVE_ROOMS": "500",
     "INVITE_TTL_HOURS": "24",

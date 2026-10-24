@@ -13,6 +13,12 @@ export function setting(env: Env, name: string, fallback: number): number {
   return Number.isFinite(value) && value > 0 ? value : fallback;
 }
 
+/** Where this deployment's source code is (the AGPL asks a modified
+ *  deployment to offer its own: set SOURCE_URL). */
+export function sourceURL(env: Env): string {
+  return env.SOURCE_URL || "https://github.com/JamesRandall/cloudflare-econet";
+}
+
 /** GET /.well-known/acorn-econet: what this deployment is and does, so a
  *  client can check it's compatible before sending it anything. */
 export function serviceInfo(env: Env, origin: string) {
@@ -20,6 +26,7 @@ export function serviceInfo(env: Env, origin: string) {
     service: "acorn-internet-econet",
     name: env.SERVICE_NAME || "Acorn Internet Econet",
     origin,
+    source: sourceURL(env),
     apiVersion: 1,
     protocolVersions: [PROTOCOL_VERSION],
     minimumProtocolVersion: MINIMUM_PROTOCOL_VERSION,

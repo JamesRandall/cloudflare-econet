@@ -26,6 +26,10 @@
     // the request's own origin.
     "PUBLIC_ORIGIN": "",
     "SERVICE_NAME": "Acorn Internet Econet",
+    // Where this deployment's source code is, linked from its pages (empty:
+    // the official repository). If you run a modified copy, the AGPL asks
+    // you to offer your source to its users: point this at it.
+    "SOURCE_URL": "",
     // Operator settings (empty: the defaults). "closed" stops new rooms.
     "ROOM_CREATION": "open",
     // The most rooms active at once (empty: no limit).

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/acorn-internet-econet/protocol/v1/client-messages.schema.json",
+  "title": "Room control messages a client sends (text WebSocket frames)",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["type", "protocolVersion", "client"],
+      "properties": {
+        "type": { "const": "hello" },
+        "protocolVersion": { "type": "integer", "minimum": 1 },
+        "client": {
+          "type": "object",
+          "required": ["app", "version"],
+          "properties": { "app": { "type": "string", "maxLength": 32 }, "version": { "type": "string", "maxLength": 32 } }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "station", "kind", "label"],
+      "properties": {
+        "type": { "const": "claim" },
+        "station": { "oneOf": [{ "type": "integer", "minimum": 1, "maximum": 254 }, { "type": "null" }] },
+        "kind": { "type": "string", "maxLength": 32, "examples": ["BBC Model B", "BBC Master 128", "A5000"] },
+        "label": { "type": "string", "maxLength": 64 },
+        "role": { "enum": ["station", "fileServer", "printServer"], "default": "station" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["type", "station"],
+      "properties": { "type": { "const": "release" }, "station": { "type": "integer", "minimum": 1, "maximum": 254 } }
+    },
+    {
+      "type": "object",
+      "required": ["type", "rttMs"],
+      "properties": { "type": { "const": "status" }, "rttMs": { "type": "number", "minimum": 0, "maximum": 60000 } }
+    }
+  ]
+}

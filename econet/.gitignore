@@ -1,0 +1,7 @@
+node_modules/
+.wrangler/
+.dev.vars*
+dist/
+
+# Local secrets (the admin token for scripts/metrics).
+.env*.local

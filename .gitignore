@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.wrangler/
+.dev.vars*
+dist/
+
+# Local secrets (the admin token for econet/metrics.sh).
+.env*.local

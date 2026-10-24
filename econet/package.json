@@ -1,0 +1,26 @@
+{
+  "name": "acorn-internet-econet",
+  "version": "0.1.0",
+  "description": "Internet Econet rooms for Acorn emulators: a Cloudflare Worker and Durable Objects that relay Econet between BBC Micros (and later Archimedes) on different computers",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p . && tsc --noEmit -p test",
+    "types": "wrangler types src/worker-configuration.d.ts",
+    "client": "node scripts/test-client.mjs"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.4.7",
+    "typescript": "^5.9.3",
+    "vitest": "~4.1.0",
+    "wrangler": "^4.152.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261019.1": true
+  }
+}

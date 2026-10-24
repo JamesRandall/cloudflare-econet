@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/acorn-internet-econet/protocol/v1/server-messages.schema.json",
+  "title": "Room control messages the service sends (text WebSocket frames)",
+  "$defs": {
+    "room": {
+      "type": "object",
+      "required": ["id", "name", "description", "locked"],
+      "properties": { "id": { "type": "string" }, "name": { "type": "string" }, "description": { "type": "string" }, "locked": { "type": "boolean" },
+                      "screenSharing": { "type": "boolean", "description": "Members may share their machines' screens" } }
+    },
+    "participant": {
+      "type": "object",
+      "required": ["id", "name", "app", "owner", "online", "rttMs"],
+      "properties": {
+        "id": { "type": "string" }, "name": { "type": "string" }, "app": { "type": "string" },
+        "owner": { "type": "boolean" }, "online": { "type": "boolean" }, "rttMs": { "type": ["integer", "null"] }
+      }
+    },
+    "station": {
+      "type": "object",
+      "required": ["station", "participantId", "kind", "label", "role", "online"],
+      "properties": {
+        "station": { "type": "integer" }, "participantId": { "type": "string" }, "kind": { "type": "string" },
+        "label": { "type": "string" }, "role": { "enum": ["station", "fileServer", "printServer"] }, "online": { "type": "boolean" }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["type", "protocolVersion", "participantId", "owner", "room", "participants", "stations", "limits"],
+      "properties": {
+        "type": { "const": "welcome" }, "protocolVersion": { "type": "integer" }, "participantId": { "type": "string" },
+        "owner": { "type": "boolean" }, "room": { "$ref": "#/$defs/room" },
+        "participants": { "type": "array", "items": { "$ref": "#/$defs/participant" } },
+        "stations": { "type": "array", "items": { "$ref": "#/$defs/station" } },
+        "limits": { "type": "object" }
+      }
+    },
+    { "type": "object", "required": ["type", "room"], "properties": { "type": { "const": "room" }, "room": { "$ref": "#/$defs/room" } } },
+    { "type": "object", "required": ["type", "participants"], "properties": { "type": { "const": "participants" }, "participants": { "type": "array", "items": { "$ref": "#/$defs/participant" } } } },
+    { "type": "object", "required": ["type", "stations"], "properties": { "type": { "const": "stations" }, "stations": { "type": "array", "items": { "$ref": "#/$defs/station" } } } },
+    { "type": "object", "required": ["type", "station"], "properties": { "type": { "const": "claimed" }, "station": { "type": "integer" } } },
+    {
+      "type": "object", "required": ["type", "code", "message"],
+      "properties": {
+        "type": { "const": "error" },
+        "code": { "enum": ["malformed", "tooLarge", "badAddress", "unsupportedVersion", "upgradeRequired", "helloFirst", "stationTaken", "roomFull", "tooManyStations", "notYourStation", "rateLimited"] },
+        "message": { "type": "string" }, "station": { "type": "integer" }
+      }
+    },
+    { "type": "object", "required": ["type", "reason"], "properties": { "type": { "const": "closing" }, "reason": { "enum": ["roomClosed", "removed", "replaced"] } } }
+  ]
+}
